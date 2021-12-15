@@ -1,4 +1,4 @@
-# MISTswap
+# HONKswap
 
 https://mistswap.fi
 
