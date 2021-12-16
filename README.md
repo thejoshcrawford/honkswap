@@ -1,10 +1,10 @@
-# MISTswap
+# HONKswap
 
-https://mistswap.fi
+https://honk.cash/
 
 ## Deployed Contracts
 
-https://github.com/mistswapdex/mistswap-sdk/blob/master/src/constants/addresses.ts
+https://github.com/honk-world/honkswap-sdk/blob/master/src/constants/addresses.ts
 
 ## Docs
 
