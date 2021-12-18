@@ -488,10 +488,10 @@
   dependencies:
     keccak "^3.0.0"
 
-"@honkswapdex/sdk@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/@honkswapdex/sdk/-/sdk-0.0.11.tgz#b951dec9da12d701ebe4a03a5e7a7639450ae3bd"
-  integrity sha512-P8yWH41ReWnK/XarXtPLgKYUDRKnUpqd8b8SyrRnCKnGbc5jl0dTAQYdXPUJVhRnFQmsYdO+HOiLNT8z6NfOuw==
+"@honkswapdex/sdk@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@honkswapdex/sdk/-/sdk-0.0.12.tgz#87dbbc69da2cb65dca8241b15372cd9552e684e6"
+  integrity sha512-J1srIEmB4iTcBImtKhPJINgMgXfYXJgxBNGzm5CH0PVbcbJ1rHH0q+nxNEBpeNWRZ+LTN0+zRsgh58upxEhDdA==
   dependencies:
     big.js "^6.1.0"
     decimal.js-light "^2.5.0"
