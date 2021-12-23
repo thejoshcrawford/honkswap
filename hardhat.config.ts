@@ -18,6 +18,8 @@ import { removeConsoleLog } from "hardhat-preprocessor"
 
 const accounts = [process.env.DEPLOYER_PRIVATE_KEY, process.env.DEV_PRIVATE_KEY]
 
+// console.log(`accounts: ${accounts}`)
+
 const config: HardhatUserConfig = {
   abiExporter: {
     path: "./abi",
@@ -72,8 +74,8 @@ const config: HardhatUserConfig = {
       gasMultiplier: 2,
     },
     "smartbch-amber": {
-      // url: "https://moeing.tech:9545",
-      url: "http://35.220.203.194:8545/",
+      url: "https://moeing.tech:9545",
+      // url: "http://35.220.203.194:8545/",
       accounts,
       chainId: 10001,
       live: true,
