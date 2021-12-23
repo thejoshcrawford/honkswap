@@ -2,6 +2,8 @@
 
 https://honk.cash/
 
+Swaps, pools, staking!
+
 ## Deployed Contracts
 
 https://github.com/honk-world/honkswap-sdk/blob/master/src/constants/addresses.ts
@@ -19,3 +21,4 @@ https://github.com/honk-world/honkswap-sdk/blob/master/src/constants/addresses.t
 ## License
 
 [MIT](LICENSE.txt)
+
