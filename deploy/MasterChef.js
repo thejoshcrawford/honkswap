@@ -1,9 +1,20 @@
+const { HONK_ADDRESS } = require("@honkswapdex/sdk");
+
 module.exports = async function ({ ethers, deployments, getNamedAccounts }) {
   const { deploy } = deployments
 
   const { deployer, dev } = await getNamedAccounts()
 
-  const sushi = await ethers.getContract("SushiToken")
+  // const sushi = await ethers.getContract("SushiToken")
+
+  let honkAddress;
+  if (chainId === "31337") {
+    honkAddress = (await deployments.get("HONKMock")).address;  // mock this
+  } else if (chainId in HONK_ADDRESS) {
+    honkAddress = HONK_ADDRESS[chainId].address;
+  } else {
+    throw Error("No HONK_ADDRESS!");
+  }
   
   const startBlock = 989239
   const endBlock = startBlock + (15684 * 14) // 15684 is approx blocks per day
