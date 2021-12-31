@@ -410,6 +410,7 @@ task("bar:leave", "SushiBar leave")
 .addParam("amount", "Amount")
 .setAction(async function ({ amount }, { ethers: { getNamedSigner } }, runSuper) {
   // const sushi = await ethers.getContract("SushiToken")
+  const chainId = await getChainId()
   let honkAddress;
   if (chainId === "31337") {
     honkAddress = (await deployments.get("HONKMock")).address;  // mock this

@@ -7,6 +7,7 @@ module.exports = async function ({ ethers, deployments, getNamedAccounts }) {
 
   // const sushi = await ethers.getContract("SushiToken")
 
+  const chainId = await getChainId()
   let honkAddress;
   if (chainId === "31337") {
     honkAddress = (await deployments.get("HONKMock")).address;  // mock this
@@ -20,7 +21,7 @@ module.exports = async function ({ ethers, deployments, getNamedAccounts }) {
   const endBlock = startBlock + (15684 * 14) // 15684 is approx blocks per day
   const { address } = await deploy("MasterChef", {
     from: deployer,
-    args: [sushi.address, dev, "100000000000000000000", "0", endBlock],
+    args: [honkAddress, dev, "100000000000000000000", "0", endBlock],
     log: true,
     deterministicDeployment: false
   })
@@ -30,11 +31,11 @@ module.exports = async function ({ ethers, deployments, getNamedAccounts }) {
     gasLimit: 5000000,
   }
 
-  if (await sushi.owner() !== address) {
-    // Transfer Sushi Ownership to Chef
-    console.log("Transfer Sushi Ownership to Chef")
-    await (await sushi.transferOwnership(address, txOptions)).wait()
-  }
+  // if (await sushi.owner() !== address) {
+  //   // Transfer Sushi Ownership to Chef
+  //   console.log("Transfer Sushi Ownership to Chef")
+  //   await (await sushi.transferOwnership(address, txOptions)).wait()
+  // }
 
   const masterChef = await ethers.getContract("MasterChef")
   if (await masterChef.owner() !== dev) {
