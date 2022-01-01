@@ -12,7 +12,7 @@ module.exports = async function ({ ethers, deployments, getNamedAccounts }) {
   if (chainId === "31337") {
     honkAddress = (await deployments.get("HONKMock")).address;  // mock this
   } else if (chainId in HONK_ADDRESS) {
-    honkAddress = HONK_ADDRESS[chainId].address;
+    honkAddress = HONK_ADDRESS[chainId].address;  // get honk token?
   } else {
     throw Error("No HONK_ADDRESS!");
   }
