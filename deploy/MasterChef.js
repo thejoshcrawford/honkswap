@@ -6,13 +6,12 @@ module.exports = async function ({ ethers, deployments, getNamedAccounts }) {
   const { deployer, dev } = await getNamedAccounts()
 
   // const sushi = await ethers.getContract("SushiToken")
-
   const chainId = await getChainId()
-  let honkAddress;
+  let honk;
   if (chainId === "31337") {
-    honkAddress = (await deployments.get("HONKMock")).address;  // mock this
+    honk = (await deployments.get("HONKMock"));  // mock this
   } else if (chainId in HONK_ADDRESS) {
-    honkAddress = HONK_ADDRESS[chainId].address;  // get honk token?
+    honk = await ethers.getContract(`${HONK_ADDRESS[chainId].address}`);  
   } else {
     throw Error("No HONK_ADDRESS!");
   }
@@ -21,7 +20,7 @@ module.exports = async function ({ ethers, deployments, getNamedAccounts }) {
   const endBlock = startBlock + (15684 * 14) // 15684 is approx blocks per day
   const { address } = await deploy("MasterChef", {
     from: deployer,
-    args: [honkAddress, dev, "100000000000000000000", "0", endBlock],
+    args: [honk, dev, "100000000000000000000", "0", endBlock],
     log: true,
     deterministicDeployment: false
   })
