@@ -11,7 +11,8 @@ module.exports = async function ({ ethers, deployments, getNamedAccounts }) {
   if (chainId === "31337") {
     honk = (await deployments.get("HONKMock"));  // mock this
   } else if (chainId in HONK_ADDRESS) {
-    honk = await ethers.getContract(`${HONK_ADDRESS[chainId].address}`);  
+    honk = await ethers.getContract(`${HONK_ADDRESS[chainId].address}`);
+    console.log(JSON.stringify(honk));  
   } else {
     throw Error("No HONK_ADDRESS!");
   }
